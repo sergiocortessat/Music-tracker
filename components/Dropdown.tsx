@@ -16,7 +16,6 @@ interface Props {
 const Dropdown = ({
   label, listOfItems, changed, selectedValue,
 }: Props) => {
-  const x = 0;
   const handleChange = (event: any) => {
     event.preventDefault();
     changed(event.target.value);

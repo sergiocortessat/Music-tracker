@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Credential from '../credentials/credentials';
 import Dropdown from './Dropdown';
+import Listbox from './ListBox';
 
 interface Props {
 
@@ -19,6 +20,7 @@ const Layout = (props: Props) => {
   const [token, setToken] = useState('');
   const [genres, setGenres] = useState({ selectedGenre: '', listOfGenresFromAPI: [] });
   const [playlist, setPlaylist] = useState({ selectedPlaylist: '', listOfPlaylistFromAPI: [] });
+  const [tracks, setTracks] = useState({ selectedTrack: '', listOfTracksFromAPI: [] });
   useEffect(() => {
     axios('https://accounts.spotify.com/api/token', {
       headers: {
@@ -71,11 +73,31 @@ const Layout = (props: Props) => {
     });
   };
 
-  console.log(playlist.selectedPlaylist);
+  const buttonClicked = (e:any) => {
+    e.preventDefault();
+
+    axios(`https://api.spotify.com/v1/playlists/${playlist.selectedPlaylist}/tracks?limit=10`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((tracksResponse) => {
+        setTracks({
+          selectedTrack: tracks.selectedTrack,
+          listOfTracksFromAPI: tracksResponse.data.items,
+        });
+      });
+  };
+  console.log(tracks);
   return (
     <div>
       <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
       <Dropdown label="Categories: " listOfItems={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
+      <button type="submit" onClick={(e) => buttonClicked(e)}>
+        Search songs
+      </button>
+      <Listbox tracks={tracks.listOfTracksFromAPI} selectedValue={tracks.selectedTrack} />
     </div>
   );
 };
