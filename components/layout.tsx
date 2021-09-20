@@ -63,10 +63,19 @@ const Layout = (props: Props) => {
 
     console.log(val);
   };
-  console.log(genres);
+
+  const playlistChanged = (val:string) => {
+    setPlaylist({
+      selectedPlaylist: val,
+      listOfPlaylistFromAPI: playlist.listOfPlaylistFromAPI,
+    });
+  };
+
+  console.log(playlist.selectedPlaylist);
   return (
     <div>
-      <Dropdown label="Genres: " listOfGenres={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
+      <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
+      <Dropdown label="Categories: " listOfItems={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
     </div>
   );
 };
