@@ -1,7 +1,9 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import '../styles/globals.scss';
+import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
-export default MyApp
+export default MyApp;
