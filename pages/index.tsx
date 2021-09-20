@@ -1,6 +1,7 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Layout from '../components/layout';
 
 const Home: NextPage = () => (
   <div>
@@ -10,8 +11,9 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <nav className="nav" />
-    <main className="main" />
-
+    <main className="main">
+      <Layout />
+    </main>
     <footer className="footer" />
   </div>
 );
