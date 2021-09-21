@@ -19,14 +19,17 @@ const TrackInfo = (props: Props) => {
 
     setTrack(trackInfo.track);
   }, []);
-  console.log(track);
+  // console.log(track.album.images[0].url);
   return (
     <div>
       {track && (
       <div>
         <h1>{track.id}</h1>
         <h1>{track.name}</h1>
-
+        <img src={track.album && track.album.images[0].url} alt="Artist" />
+        <li>
+          <a href={track.external_urls && track.external_urls.spotify}>Listen to song</a>
+        </li>
       </div>
       )}
     </div>
