@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Layout from '../components/layout';
 
 const Home: NextPage = () => (
+
   <div>
     <Head>
       <title>Spotify tracker</title>

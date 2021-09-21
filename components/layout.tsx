@@ -21,6 +21,7 @@ const Layout = (props: Props) => {
   const [genres, setGenres] = useState({ selectedGenre: '', listOfGenresFromAPI: [] });
   const [playlist, setPlaylist] = useState({ selectedPlaylist: '', listOfPlaylistFromAPI: [] });
   const [tracks, setTracks] = useState({ selectedTrack: '', listOfTracksFromAPI: [] });
+  const [trackDetail, setTrackDetail] = useState(null);
   useEffect(() => {
     axios('https://accounts.spotify.com/api/token', {
       headers: {
@@ -89,7 +90,8 @@ const Layout = (props: Props) => {
         });
       });
   };
-  console.log(tracks);
+
+  console.log(trackDetail);
   return (
     <div>
       <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
@@ -97,7 +99,10 @@ const Layout = (props: Props) => {
       <button type="submit" onClick={(e) => buttonClicked(e)}>
         Search songs
       </button>
-      <Listbox tracks={tracks.listOfTracksFromAPI} selectedValue={tracks.selectedTrack} />
+      <Listbox
+        tracks={tracks.listOfTracksFromAPI}
+        selectedValue={tracks.selectedTrack}
+      />
     </div>
   );
 };
