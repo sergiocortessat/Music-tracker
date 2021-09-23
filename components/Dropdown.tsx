@@ -22,9 +22,9 @@ const Dropdown = ({
   };
   return (
 
-    <div className="col-sm-6 form-group row px-0">
-      <label className="form-label col-sm-2" htmlFor="select-genre">{label}</label>
-      <select id="select-genre" value={selectedValue} onChange={(e) => handleChange(e)} className="form-control form-control-sm col-sm-10">
+    <div className="form">
+      <label className="form-label" htmlFor="select-genre">{label}</label>
+      <select id="select-genre" value={selectedValue} onChange={(e) => handleChange(e)} className="form-control">
         <option key={0}>Select...</option>
         {listOfItems.map((item, idx) => (
           <option

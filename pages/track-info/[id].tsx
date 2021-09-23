@@ -2,34 +2,71 @@
 import { useRouter } from 'next/dist/client/router';
 import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import Image from 'next/image';
 import todoListState from '../../components/atom';
+import blurImage from '../../public/image.png';
 
-interface Props {
-
+interface Tracks {
+  track: {
+    id: string;
+  }
 }
 
-const TrackInfo = (props: Props) => {
-  const currentTracks = useRecoilValue(todoListState);
-  const [track, setTrack] = useState([]);
+interface TrackInformation {
+  track: {
+    id: string;
+    name: string;
+    album: {
+      images: [{ url:string }]
+    }
+    external_urls: { spotify: string }
+  }
+}
+
+interface Temp {
+  id: string;
+  name: string;
+  album: {
+    images: [{ url:string }]
+  }
+  external_urls: { spotify: string }
+}
+
+const TrackInfo = () => {
+  const currentTracks = useRecoilValue<[][] | []>(todoListState);
+  const [tempTrack, setTempTrack] = useState<null | Temp>(null);
   const router = useRouter();
   const { id } = router.query;
+  console.log(currentTracks);
 
   useEffect(() => {
-    const trackInfo = currentTracks[0].filter((t) => t.track.id === id)[0];
+    // const trackInfo:Temp = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
+    const track :TrackInformation = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
+    setTempTrack(track.track);
+  }, [currentTracks, id]);
+  // console.log(track.album && track.album.images);
 
-    setTrack(trackInfo.track);
-  }, []);
-  // console.log(track.album.images[0].url);
+  const handleClick = (e: any) => {
+    window.open = e.target.id;
+  };
+
+  const handleBack = () => {
+    router.push('/');
+  };
   return (
     <div>
-      {track && (
+      <button type="button" onClick={() => handleBack()}>Go Back</button>
+      {tempTrack && (
       <div>
-        <h1>{track.id}</h1>
-        <h1>{track.name}</h1>
-        <img src={track.album && track.album.images[0].url} alt="Artist" />
-        <li>
-          <a href={track.external_urls && track.external_urls.spotify}>Listen to song</a>
-        </li>
+        <h1>{tempTrack.id}</h1>
+        <h1>{tempTrack.name}</h1>
+        <Image src={tempTrack.album.images[0].url} alt="Artist" height={400} width={400} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" />
+        {/* <li>
+          <button type="button" onClick={(e) => handleClick(e)} id={tempTrack.external_urls.spotify}>Listen to song</button>
+        </li> */}
+        <form method="get" action={tempTrack.external_urls.spotify} target="_blank">
+          <input type="submit" value={`Listen to ${tempTrack.name}`} />
+        </form>
       </div>
       )}
     </div>

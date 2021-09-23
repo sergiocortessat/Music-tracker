@@ -9,3 +9,19 @@
   font-style: inherit;
   font-size: 100%;
 }
+
+body {
+  height: 100%;
+}
+
+#__next{
+  height: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Barlow",sans-serif;
+  height: 100vh;
+}

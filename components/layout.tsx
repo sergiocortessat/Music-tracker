@@ -1,20 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Credential from '../credentials/credentials';
 import Dropdown from './Dropdown';
 import Listbox from './ListBox';
 
-interface Props {
-
-}
-
 interface Genre {
   id: string;
   name: string;
 }
 
-const Layout = (props: Props) => {
+const Layout = () => {
   const spotify = Credential();
 
   const [token, setToken] = useState('');
@@ -63,8 +58,6 @@ const Layout = (props: Props) => {
           listOfPlaylistFromAPI: playlistResponse.data.playlists.items,
         });
       });
-
-    console.log(val);
   };
 
   const playlistChanged = (val:string) => {
@@ -91,19 +84,19 @@ const Layout = (props: Props) => {
       });
   };
 
-  console.log(trackDetail);
+  // console.log(trackDetail);
   return (
-    <div>
+    <>
       <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
       <Dropdown label="Categories: " listOfItems={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
-      <button type="submit" onClick={(e) => buttonClicked(e)}>
+      <button type="submit" className="submit-button" onClick={(e) => buttonClicked(e)}>
         Search songs
       </button>
       <Listbox
         tracks={tracks.listOfTracksFromAPI}
         selectedValue={tracks.selectedTrack}
       />
-    </div>
+    </>
   );
 };
 

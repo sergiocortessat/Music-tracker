@@ -28,10 +28,10 @@ const ListBox = ({
   // console.log(todoList);
   const x = 0;
   return (
-    <div>
+    <div className="list-box">
       {tracks && tracks.map((item) => (
         <Link href={`/track-info/${item.track.id}`} key={item.track.id} passHref>
-          <button type="button">{item.track.name}</button>
+          <button className="search-button" type="button">{item.track.name}</button>
         </Link>
       ))}
     </div>
