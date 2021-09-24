@@ -12,16 +12,20 @@ interface Props {
 
 }
 
+interface Track {
+  tracks: Array<{ track: { id: string, name: string } }>;
+}
+
 const ListBox = ({
   tracks, selectedValue, clicked,
 }: Props) => {
   // const setText = useSetRecoilState(todoListState);
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const [todoList, setTodoList] = useRecoilState<string[]>(todoListState);
   // const [todoList, setTodoList] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    const currentTracks = [tracks];
+    const currentTracks:Track = [tracks];
     setTodoList(currentTracks);
   }, [tracks]);
   // const listboxClicked = () => {
@@ -31,11 +35,11 @@ const ListBox = ({
   // };
   // <Link href={`/track-info/${item.track.id}`} key={item.track.id} passHref onClick={(e) => handleClicked(e)}>
 
-  const handleClicked = (e) => {
+  const handleClicked = (e: any) => {
     clicked(e.target.id);
     router.push(`/track-info/${e.target.id}`);
   };
-  console.log(todoList);
+  // console.log(todoList);
   const x = 0;
   return (
     <div className="list-box">

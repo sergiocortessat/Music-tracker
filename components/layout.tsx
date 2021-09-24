@@ -17,6 +17,7 @@ const Layout = () => {
   const [playlist, setPlaylist] = useState({ selectedPlaylist: '', listOfPlaylistFromAPI: [] });
   const [tracks, setTracks] = useState({ selectedTrack: '', listOfTracksFromAPI: [] });
   const [trackDetail, setTrackDetail] = useState(null);
+  const [temp, setTemp] = useState(true);
   useEffect(() => {
     axios('https://accounts.spotify.com/api/token', {
       headers: {
@@ -47,6 +48,7 @@ const Layout = () => {
       selectedGenre: val,
       listOfGenresFromAPI: genres.listOfGenresFromAPI,
     });
+    setTemp(true);
 
     axios(`https://api.spotify.com/v1/browse/categories/${val}/playlists?limit=10`, {
       method: 'GET',
@@ -65,6 +67,8 @@ const Layout = () => {
       selectedPlaylist: val,
       listOfPlaylistFromAPI: playlist.listOfPlaylistFromAPI,
     });
+    setTemp(false);
+    // console.log(playlist.listOfPlaylistFromAPI.length > 0);
   };
 
   const buttonClicked = (e:any) => {
@@ -90,16 +94,17 @@ const Layout = () => {
     const trackInfo = currentTracks.filter((t) => t.track.id === val);
 
     setTrackDetail(trackInfo[0].track);
-    console.log(trackInfo);
+    // console.log(trackInfo);
     // history.push('/detail');
   };
 
-  // console.log(trackDetail);
+  // console.log(tracks);
+
   return (
     <>
       <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
       <Dropdown label="Categories: " listOfItems={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
-      <button type="submit" className="submit-button" onClick={(e) => buttonClicked(e)}>
+      <button type="submit" className="submit-button" onClick={(e) => buttonClicked(e)} disabled={temp}>
         Search songs
       </button>
       <Listbox
