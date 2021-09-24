@@ -46,7 +46,11 @@ const ListBox = ({
     <div className="list-box">
       {tracks && tracks.map((item) => (
         <div className="track-container">
-          <button className="search-button glow-on-hover" onClick={(e) => handleClicked(e)} id={item.track.id} type="button">{item.track.name}</button>
+          <button className="search-button glow-on-hover" onClick={(e) => handleClicked(e)} id={item.track.id} type="button">
+            LISTEN TO:
+            {' '}
+            {item.track.name}
+          </button>
           <Image className="menu-image" src={item.track.album.images[0].url} alt="photo" height={100} width={110} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" />
         </div>
       ))}
