@@ -88,7 +88,7 @@ const Layout = () => {
       });
   };
 
-  const listboxClicked = (val) => {
+  const listboxClicked = (val:string) => {
     const currentTracks = [...tracks.listOfTracksFromAPI];
 
     const trackInfo = currentTracks.filter((t) => t.track.id === val);
@@ -104,9 +104,21 @@ const Layout = () => {
     <>
       <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
       <Dropdown label="Categories: " listOfItems={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
-      <button type="submit" className="submit-button" onClick={(e) => buttonClicked(e)} disabled={temp}>
+      {/* <button type="submit" className="submit-button" onClick={(e) => buttonClicked(e)} disabled={temp}>
         Search songs
-      </button>
+      </button> */}
+
+      <div className="btn-container">
+        <div className="btn-center">
+          <button type="button" className="btn" onClick={(e) => buttonClicked(e)} disabled={temp}>
+            <svg width="180px" height="60px" viewBox="0 0 180 60" className="border">
+              <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+              <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+            </svg>
+            <span>SEARCH</span>
+          </button>
+        </div>
+      </div>
       <Listbox
         tracks={tracks.listOfTracksFromAPI}
         selectedValue={tracks.selectedTrack}

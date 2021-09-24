@@ -1,59 +1,204 @@
 .nav {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    min-height: 60px;
-    background-color: green;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  min-height: 60px;
+  background-color: green;
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+//   background-image: url(../source.gif);
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: contain;
+
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
+    margin-top: 10px;
 
-    .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-
-        .form-control {
-            width: 250px;
-            margin-top: 10px;
-        }
+    .form-control {
+      width: 250px;
+      margin: 10px;
+      background: rgba(246, 247, 248, 0.8);
+      color: black;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+      transition: 0.3s;
     }
+  }
 
-    .submit-button {
-        width: 250px;
-        margin: 20px 0 20px 0;
-        border-radius: 10px;
+   
+
+//   .submit-button {
+//     width: 150px;
+//     margin: 20px 0 20px 0;
+//     border-radius: 10px;
+//     height: 35px;
+//     // background-color: black;
+//     color: black;
+//     opacity: 0.8;
+//     border: 0;
+//     transition: 0.3s;
+//     border-radius: 25px;
+//     background: linear-gradient(145deg, grey, #cacaca);
+//     box-shadow: 20px 20px 39px #c3c3c3, -20px -20px 39px #fdfdfd;
+//   }
+
+//   .submit-button:hover {
+//     opacity: 1;
+//   }
+
+  .list-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 120px 0 50px 0;
+
+    .track-container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      background-color: transparent;
+      border-radius: 10px 10px;
+      margin-bottom: 20px;
+      justify-content: space-between;
+      border: 1px solid white;
+
+    //   .search-button {
+    //     width: 350px;
+    //     max-width: 550px;
+    //     height: 100px;
+    //     font-size: 0.9rem;
+    //     margin: 5px 5px 5px 5px;
+    //     // border-radius: 5px;
+    //     background-color: gray;
+    //     // border: 1px solid black;
+    //     opacity: 0.7;
+    //     border-radius: 250px 750px 250px 750px / 750px 250px 750px 250px;
+    //     // transition: border-radius ease-in-out  0.2s;
+    //     background: linear-gradient(145deg, grey, #cacaca);
+    //     animation: search-button 15s ease-in-out alternate infinite;
+    //     -moz-animation: search-button 15s ease-in-out alternate infinite;
+    //   }
+
+    //   .search-button:hover {
+    //     opacity: 1;
+    //     // border-radius: 750px 250px 750px 250px / 250px 750px 250px 750px;
+    //     // font-weight: bold;
+    //     background: linear-gradient(145deg, #cacaca, grey);
+    //     // animation: search-button 15s ease-in-out alternate infinite;
+
+
+    //   }
+
+      .menu-image {
+        border-radius: 50% !important;
+        padding: 10px !important;
+      }
+
+      .menu-image:hover {
+          border-radius: 10px;
+      }
     }
-
-    .list-box {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-
-        .search-button {
-            width: 250px;
-            height: 40px;
-            font-size: 0.7rem;
-            margin: 10px 5px 10px 5px;
-            border-radius: 50px;
-            background-color: green;
-            border: 0px;
-        }
-    }
+  }
 }
+
+.main-body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+  }
 
 .footer {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    min-height: 60px;
-    background-color: blue;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  min-height: 60px;
+  background-color: blue;
 }
 
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+
+// /* Exo thin font from Google. */
+// @import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+// /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+// $bg-url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC";
+// $bg-width: 50px;
+// $bg-height: 50px;
+
+// /* Animations */
+// @-webkit-keyframes bg-scrolling-reverse {
+//   100% { background-position: $bg-width $bg-height; }
+// }
+// @-moz-keyframes    bg-scrolling-reverse {
+//   100% { background-position: $bg-width $bg-height; }
+// }
+// @-o-keyframes      bg-scrolling-reverse {
+//   100% { background-position: $bg-width $bg-height; }
+// }
+// @keyframes         bg-scrolling-reverse {
+//   100% { background-position: $bg-width $bg-height; }
+// }
+
+// @-webkit-keyframes bg-scrolling {
+//   0% { background-position: $bg-width $bg-height; }
+// }
+// @-moz-keyframes    bg-scrolling {
+//   0% { background-position: $bg-width $bg-height; }
+// }
+// @-o-keyframes      bg-scrolling {
+//   0% { background-position: $bg-width $bg-height; }
+// }
+// @keyframes         bg-scrolling {
+//   0% { background-position: $bg-width $bg-height; }
+// }
+
+// /* Main styles */
+// .main-body {
+//   margin-top: 13.5rem;
+  
+//   color: #999;
+//   font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+//   text-align: center;
+//   /* img size is 50x50 */
+//   background: url($bg-url) repeat 0 0;
+  
+//   -webkit-animation: bg-scrolling-reverse .92s infinite; /* Safari 4+ */
+//   -moz-animation:    bg-scrolling-reverse .92s infinite; /* Fx 5+ */
+//   -o-animation:      bg-scrolling-reverse .92s infinite; /* Opera 12+ */
+//   animation:         bg-scrolling-reverse .92s infinite; /* IE 10+ */
+//   -webkit-animation-timing-function: linear;
+//   -moz-animation-timing-function:    linear;
+//   -o-animation-timing-function:      linear;
+//   animation-timing-function:         linear;
+  
+//   &::before {
+//     content: "INFINITY";
+
+//     font-size: 8rem;
+//     font-weight: 100;
+//     font-style: normal;
+//   }
+// }
