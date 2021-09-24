@@ -84,6 +84,16 @@ const Layout = () => {
       });
   };
 
+  const listboxClicked = (val) => {
+    const currentTracks = [...tracks.listOfTracksFromAPI];
+
+    const trackInfo = currentTracks.filter((t) => t.track.id === val);
+
+    setTrackDetail(trackInfo[0].track);
+    console.log(trackInfo);
+    // history.push('/detail');
+  };
+
   // console.log(trackDetail);
   return (
     <>
@@ -95,6 +105,7 @@ const Layout = () => {
       <Listbox
         tracks={tracks.listOfTracksFromAPI}
         selectedValue={tracks.selectedTrack}
+        clicked={listboxClicked}
       />
     </>
   );

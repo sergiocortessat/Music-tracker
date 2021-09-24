@@ -2,19 +2,23 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { atom, useRecoilState, useSetRecoilState } from 'recoil';
+import { useRouter } from 'next/dist/client/router';
 import todoListState from './atom';
 
 interface Props {
   tracks: Array<{ track: { id: string, name: string } }>;
   selectedValue: string;
+  clicked: (id: string) => void;
 
 }
 
 const ListBox = ({
-  tracks, selectedValue,
+  tracks, selectedValue, clicked,
 }: Props) => {
   // const setText = useSetRecoilState(todoListState);
   const [todoList, setTodoList] = useRecoilState(todoListState);
+  // const [todoList, setTodoList] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const currentTracks = [tracks];
@@ -25,14 +29,20 @@ const ListBox = ({
   //   // const trackInfo = currentTracks.filter((t) => t.track.id === e.target.id);
 
   // };
-  // console.log(todoList);
+  // <Link href={`/track-info/${item.track.id}`} key={item.track.id} passHref onClick={(e) => handleClicked(e)}>
+
+  const handleClicked = (e) => {
+    clicked(e.target.id);
+    router.push(`/track-info/${e.target.id}`);
+  };
+  console.log(todoList);
   const x = 0;
   return (
     <div className="list-box">
       {tracks && tracks.map((item) => (
-        <Link href={`/track-info/${item.track.id}`} key={item.track.id} passHref>
-          <button className="search-button" type="button">{item.track.name}</button>
-        </Link>
+
+        <button className="search-button" onClick={(e) => handleClicked(e)} id={item.track.id} type="button">{item.track.name}</button>
+
       ))}
     </div>
   );
