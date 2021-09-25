@@ -3,7 +3,7 @@
   align-items: center;
   padding: 0 20px;
   min-height: 60px;
-  background-color: green;
+  background-color: transparent;
 }
 
 .main {
@@ -26,10 +26,14 @@
     .form-control {
       width: 250px;
       margin: 10px;
-      background: rgba(246, 247, 248, 0.8);
+      // background: rgba(246, 247, 248, 0.8);
       color: black;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
       transition: 0.3s;
+      border-radius: 8px;
+      height: 40px;
+      background-color: white;
+      border-color: white;
     }
   }
 
@@ -68,8 +72,8 @@
       background-color: transparent;
       border-radius: 10px 10px;
       margin-bottom: 20px;
-      justify-content: space-between;
-      border: 1px solid white;
+      border: 3px solid white;
+      height: 275px;
 
     //   .search-button {
     //     width: 350px;

@@ -28,13 +28,7 @@ const ListBox = ({
   useEffect(() => {
     const currentTracks:Track = [tracks];
     setTodoList(currentTracks);
-  }, [tracks]);
-  // const listboxClicked = () => {
-  //   console.log(currentTracks);
-  //   // const trackInfo = currentTracks.filter((t) => t.track.id === e.target.id);
-
-  // };
-  // <Link href={`/track-info/${item.track.id}`} key={item.track.id} passHref onClick={(e) => handleClicked(e)}>
+  }, [tracks, setTodoList]);
 
   const handleClicked = (e: any) => {
     clicked(e.target.id);
@@ -51,7 +45,7 @@ const ListBox = ({
             {' '}
             {item.track.name}
           </button>
-          <Image className="menu-image" src={item.track.album.images[0].url} alt="photo" height={100} width={110} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" />
+          <Image className="menu-image" src={item.track.album.images[0].url} alt="photo" height={165} width={160} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" />
         </div>
       ))}
     </div>
