@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 import '../styles/index.scss';
 import '../styles/btn-submit.scss';
 import '../styles/btn-search.scss';
+import '../styles/track-info.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

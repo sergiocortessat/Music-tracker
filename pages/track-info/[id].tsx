@@ -58,10 +58,10 @@ const TrackInfo = () => {
   };
   console.log(tempTrack);
   return (
-    <div>
+    <div className="track-container">
       <button type="button" onClick={() => handleBack()}>Go Back</button>
       {tempTrack && (
-      <div>
+      <div className="track-info">
         <h1>{tempTrack.name}</h1>
         <Image src={tempTrack.album.images[0].url} alt="Artist" height={400} width={400} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" />
         {/* <iframe src="https://api.spotify.com/v1/albums/5kFCfioZraFsRWpoitQjmx" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media" title="yes" /> */}
