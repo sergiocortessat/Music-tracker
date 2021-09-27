@@ -1,34 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Music-Spotify-Suggestion
+
+<p align="center">
+  <img height="auto" src="customlogo.png">
+</p>
+
+
+<br />
+
+## About The Project
+
+The Music Spotify app allows you to select the most current trending genre's and its correspondent playlist. It will display different playlists for each genre and each playlist will contain 10 random songs currently trending
+
+## Live Version
+
+* [Live Demo]() 
+
+## Table of Contents
+
+<br />
+
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [How to play](#how-to-play) 
+* [Contributing](#contributing)
+* [Contact](#authors)
+* [Acknowledgements](#acknowledgements) 
+* [Getting Started](#getting-started) 
+* [Live Demo](#live-version) 
+
+#
+<br />
+
+![React](https://img.shields.io/badge/React-092E20?style=for-the-badge&logo=react&logoColor=white) <br/>
+![Javascript](https://img.shields.io/badge/Javascript-3776AB?style=for-the-badge&logo=javascript&logoColor=white) <br/>
+![PWS](https://img.shields.io/badge/PWS-092E20?style=for-the-badge&logo=pws&logoColor=white) <br/>
+
+## Screenshot
+<br />
+<p align="center">
+  <img height="auto" src="Screenshot.png">
+</p>
+
+### Built With
+
+* [JAVASCRIPT] [REACT] [SUPERHERO API] [API]
+
+
+<!-- ABOUT THE PROJECT   -->
+
+<br />
+
+
+## Contributing
+
+Contributions make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+## Prerequisites
+
+Terminal or similar to execute the program.
+
 
 ## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+## Clone project
+- To get a local copy up and running follow these simple example steps.
+- Clone this repository with git clone ```https://github.com/sergiocortessat/React_SuperheroAPIPWS``` using your terminal or command line.
+- Change to the project directory by entering: ```cd React_SuperheroAPIPWS``` in the terminal.
+- Enter the command npm i
+- Enter the project folder and run locally by using npm start.
+- If the project cant be build, please run npx webpack.
+
+## Command line steps
+```
+- $ git clone `$ git clone https://github.com/sergiocortessat/React_SuperheroAPIPWS
+- $ git checkout develop
+- $ cd React_SuperheroAPIPWS
+- $ npm i
+- $ npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Authors
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+👤 Sergio Cortes Satizabal
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Github: [@sergiocortessat](https://github.com/sergiocortessat)
+- Twitter: [@sergiocortessat](https://twitter.com/sergiocortessat)
+- LinkedIn: [@sergiocortessat](https://linkedin.com/in/sergiocortessat)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [Microverse](https://www.microverse.org/)
+* [Superheroapi](https://superheroapi.com/index.html)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📝 License
 
-## Deploy on Vercel
+This project is [MIT](https://github.com/sergiocortessat/sergiocortessat/blob/main/LICENSE) licensed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
