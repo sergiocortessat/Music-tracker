@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { atom, useRecoilState, useSetRecoilState } from 'recoil';
+import {
+  atom, useRecoilState, useResetRecoilState, useSetRecoilState,
+} from 'recoil';
 import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
 import todoListState from './atom';
@@ -14,14 +16,14 @@ interface Props {
 }
 
 interface Track {
-  tracks: Array<{ track: { id: string, name: string } }>;
+  tracks: Array<{ track: { id: string, name: string, album: { images:[{ url: string }] } } }>;
 }
 
 const ListBox = ({
   tracks, selectedValue, clicked,
 }: Props) => {
   // const setText = useSetRecoilState(todoListState);
-  const [todoList, setTodoList] = useRecoilState<{} | []>(todoListState);
+  const setTodoList = useSetRecoilState<any>(todoListState);
   // const [todoList, setTodoList] = useState([]);
   const router = useRouter();
 

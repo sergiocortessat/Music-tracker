@@ -1,13 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Credential from '../credentials/credentials';
 import Dropdown from './Dropdown';
 import Listbox from './ListBox';
-
-interface Genre {
-  id: string;
-  name: string;
-}
 
 const Layout = () => {
   const spotify = Credential();
@@ -89,9 +85,9 @@ const Layout = () => {
   };
 
   const listboxClicked = (val:string) => {
-    const currentTracks = [...tracks.listOfTracksFromAPI];
+    const currentTracks:any = [...tracks.listOfTracksFromAPI];
 
-    const trackInfo = currentTracks.filter((t) => t.track.id === val);
+    const trackInfo = currentTracks.filter((t:any) => t.track.id === val);
 
     setTrackDetail(trackInfo[0].track);
     // console.log(trackInfo);
@@ -104,7 +100,9 @@ const Layout = () => {
     <>
       <Dropdown label="Genres: " listOfItems={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
       <Dropdown label="Categories: " listOfItems={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
-      {/* <button type="submit" className="submit-button" onClick={(e) => buttonClicked(e)} disabled={temp}>
+      {/* <button type="submit"
+      className="submit-button"
+      onClick={(e) => buttonClicked(e)} disabled={temp}>
         Search songs
       </button> */}
 
