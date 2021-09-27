@@ -74,7 +74,10 @@ const TrackInfo = () => {
       {tempTrack && (
       <div className="track-info">
         <h1>{tempTrack.name}</h1>
-        <Image src={tempTrack.album.images[0].url} alt="Artist" height={400} width={400} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" />
+        <div className="image-container">
+          <Image src={tempTrack.album.images[0].url} alt="Artist" height={400} width={400} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" className="track-image" />
+
+        </div>
         {/* <iframe src="https://api.spotify.com/v1/albums/5kFCfioZraFsRWpoitQjmx" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media" title="yes" /> */}
         <div className="iframe">
           <iframe src={`https://open.spotify.com/embed/track/${tempTrack.id}`} title="track" width="300" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" />

@@ -21,12 +21,12 @@ const ListBox = ({
   tracks, selectedValue, clicked,
 }: Props) => {
   // const setText = useSetRecoilState(todoListState);
-  const [todoList, setTodoList] = useRecoilState<string[]>(todoListState);
+  const [todoList, setTodoList] = useRecoilState<{} | []>(todoListState);
   // const [todoList, setTodoList] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    const currentTracks:Track = [tracks];
+    const currentTracks = [tracks];
     setTodoList(currentTracks);
   }, [tracks, setTodoList]);
 
