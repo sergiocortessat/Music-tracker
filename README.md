@@ -13,7 +13,7 @@ The Music Spotify app allows you to select the most current trending genre's and
 
 ## Live Version
 
-* [Live Demo]() 
+* [Live Demo](https://musing-curran-a9e1bc.netlify.app/) 
 
 ## Table of Contents
 
