@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+// body, html {
+//   width: 100%;
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   background: #5CA4EA;
+//   overflow: hidden;
+//   font-family: 'Lato', sans-serif;
+// }
+
+.btn-container-back {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.btn-center-back {
+  width: 180px;
+  height: 60px;
+}
+
+.btn-back {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+  border-radius: 5px;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn-back:hover {
+  transition: 1s ease-in-out;
+  background: #4F95DA;
+}
+
+.btn-back:hover svg {
+  stroke-dashoffset: -480;
+  transition: 1s ease-in-out;
+}
+
+.btn-back span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}

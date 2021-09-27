@@ -48,18 +48,29 @@ const TrackInfo = () => {
   }, [currentTracks, id]);
   // console.log(track.album && track.album.images);
 
-  const handleClick = (e: any) => {
-    window.open = e.target.id;
-  };
+  // const handleClick = (e: any) => {
+  //   window.open = e.target.id;
+  // };
 
   const handleBack = () => {
     router.push('/');
     // console.log(router);
   };
-  console.log(tempTrack);
+  // console.log(tempTrack);
   return (
-    <div className="track-container">
-      <button type="button" onClick={() => handleBack()}>Go Back</button>
+    <div className="track-container main-body">
+      {/* <button type="button" onClick={() => handleBack()}>Go Back</button> */}
+      <div className="btn-container-back">
+        <div className="btn-center-back">
+          <button type="button" className="btn-back" onClick={() => handleBack()}>
+            <svg width="180px" height="60px" viewBox="0 0 180 60" className="border">
+              <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+              <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+            </svg>
+            <span>GO BACK</span>
+          </button>
+        </div>
+      </div>
       {tempTrack && (
       <div className="track-info">
         <h1>{tempTrack.name}</h1>
@@ -69,7 +80,7 @@ const TrackInfo = () => {
           <iframe src={`https://open.spotify.com/embed/track/${tempTrack.id}`} title="track" width="300" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" />
         </div>
         <form method="get" action={tempTrack.external_urls.spotify} target="_blank">
-          <input type="submit" value={`Listen to ${tempTrack.name}`} />
+          <input type="submit" className="hover-center-1" value={`Listen to ${tempTrack.name}`} />
         </form>
       </div>
       )}
