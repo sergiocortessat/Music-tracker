@@ -23,6 +23,11 @@
     align-items: center;
     margin-top: 10px;
 
+    .form-label{
+      font-size: 1.8rem;
+
+    }
+
     .form-control {
       width: 250px;
       margin: 10px;
@@ -34,6 +39,7 @@
       height: 40px;
       background-color: white;
       border-color: white;
+      font-size: 1.3rem;
     }
   }
 

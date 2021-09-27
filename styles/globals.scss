@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "SedgwickAve-Regular";
+  src: url("/fonts/SedgwickAve-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +14,7 @@
   outline: 0;
   vertical-align: baseline;
   font-weight: inherit;
-  font-family: inherit;
+  font-family: SedgwickAve-Regular;
   font-style: inherit;
   font-size: 100%;
 }

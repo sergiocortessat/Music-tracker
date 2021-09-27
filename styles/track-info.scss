@@ -11,6 +11,7 @@
         h1 {
             margin-bottom: 30px;
             font-size:2rem;
+            color: white;
         }
 
         .image-container {
@@ -26,17 +27,21 @@
         }
 
         input.hover-center-1 {
-            background-image: linear-gradient(0, #0A3D5B, #0A3D5B);
+            background-image: linear-gradient(0, #4F95DA, #4F95DA);
             background-size: 0;
-            transition: .8s;
+            transition: .9s;
             background-repeat: no-repeat;
             background-position: bottom;
             transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
             height: 40px;
+            width: auto;
             padding: 10px;
             border-radius: 15px;
             border: none;
-            margin-top: 30px;
+            margin-top: 40px;
+            border-radius: 75px;
+            box-shadow:  4px 4px 8px #a8a8a8,
+            -4px -4px 8px #ffffff;
         }
         
         input.hover-center-1:hover {
