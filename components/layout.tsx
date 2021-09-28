@@ -8,7 +8,6 @@ import Listbox from './ListBox';
 interface TrackInformation {
   track: {
     id: string;
-    name: string;
   }
 }
 

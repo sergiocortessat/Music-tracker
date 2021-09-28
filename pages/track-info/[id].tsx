@@ -10,6 +10,12 @@ import blurImage from '../../public/image.png';
 interface Tracks {
   track: {
     id: string;
+    name: string;
+    album: {
+      images: [{ url:string }]
+    }
+    external_urls: { spotify: string }
+
   }
 }
 
@@ -35,7 +41,7 @@ interface Temp {
 
 const TrackInfo = () => {
   const currentTracks = useRecoilValue(trackListState);
-  const [tempTrack, setTempTrack] = useState<null | Temp>(null);
+  const [tempTrack, setTempTrack] = useState<any>([]);
   const router = useRouter();
   const { id } = router.query;
   const history = useHistory();
@@ -43,8 +49,9 @@ const TrackInfo = () => {
 
   useEffect(() => {
     // const trackInfo:Temp = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
-    const track :TrackInformation = currentTracks.filter((t:Tracks) => t.track.id === id)[0];
-    setTempTrack(track.track);
+    const { track } = currentTracks.filter((t) => t.track.id === id)[0];
+    console.log(track);
+    setTempTrack(track);
   }, [currentTracks, id]);
   // console.log(track.album && track.album.images);
 
