@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import Image from 'next/image';
 import { useHistory } from 'react-router-dom';
-import todoListState from '../../components/atom';
+import trackListState from '../../components/atom';
 import blurImage from '../../public/image.png';
 
 interface Tracks {
@@ -34,7 +34,7 @@ interface Temp {
 }
 
 const TrackInfo = () => {
-  const currentTracks = useRecoilValue<[][] | []>(todoListState);
+  const currentTracks = useRecoilValue(trackListState);
   const [tempTrack, setTempTrack] = useState<null | Temp>(null);
   const router = useRouter();
   const { id } = router.query;
@@ -43,7 +43,7 @@ const TrackInfo = () => {
 
   useEffect(() => {
     // const trackInfo:Temp = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
-    const track :TrackInformation = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
+    const track :TrackInformation = currentTracks.filter((t:Tracks) => t.track.id === id)[0];
     setTempTrack(track.track);
   }, [currentTracks, id]);
   // console.log(track.album && track.album.images);

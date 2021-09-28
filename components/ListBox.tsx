@@ -6,7 +6,7 @@ import {
 } from 'recoil';
 import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
-import todoListState from './atom';
+import trackListState from './atom';
 
 interface Props {
   tracks: Array<{ track: { id: string, name: string, album: { images:[{ url: string }] } } }>;
@@ -15,22 +15,18 @@ interface Props {
 
 }
 
-interface Track {
-  tracks: Array<{ track: { id: string, name: string, album: { images:[{ url: string }] } } }>;
-}
-
 const ListBox = ({
   tracks, selectedValue, clicked,
 }: Props) => {
   // const setText = useSetRecoilState(todoListState);
-  const setTodoList = useSetRecoilState<any>(todoListState);
+  const setCurrentTracks = useSetRecoilState(trackListState);
   // const [todoList, setTodoList] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    const currentTracks = [tracks];
-    setTodoList(currentTracks);
-  }, [tracks, setTodoList]);
+    setCurrentTracks(tracks);
+    // console.log(tracks);
+  }, [tracks, setCurrentTracks]);
 
   const handleClicked = (e: any) => {
     clicked(e.target.id);

@@ -5,6 +5,13 @@ import Credential from '../credentials/credentials';
 import Dropdown from './Dropdown';
 import Listbox from './ListBox';
 
+interface TrackInformation {
+  track: {
+    id: string;
+    name: string;
+  }
+}
+
 const Layout = () => {
   const spotify = Credential();
 
@@ -12,7 +19,7 @@ const Layout = () => {
   const [genres, setGenres] = useState({ selectedGenre: '', listOfGenresFromAPI: [] });
   const [playlist, setPlaylist] = useState({ selectedPlaylist: '', listOfPlaylistFromAPI: [] });
   const [tracks, setTracks] = useState({ selectedTrack: '', listOfTracksFromAPI: [] });
-  const [trackDetail, setTrackDetail] = useState(null);
+  const [trackDetail, setTrackDetail] = useState({});
   const [temp, setTemp] = useState(true);
   useEffect(() => {
     axios('https://accounts.spotify.com/api/token', {
@@ -85,9 +92,9 @@ const Layout = () => {
   };
 
   const listboxClicked = (val:string) => {
-    const currentTracks:any = [...tracks.listOfTracksFromAPI];
+    const currentTracks: TrackInformation[] = [...tracks.listOfTracksFromAPI];
 
-    const trackInfo = currentTracks.filter((t:any) => t.track.id === val);
+    const trackInfo = currentTracks.filter((t) => t.track.id === val);
 
     setTrackDetail(trackInfo[0].track);
     // console.log(trackInfo);
