@@ -41,7 +41,7 @@ interface Temp {
 
 const TrackInfo = () => {
   const currentTracks = useRecoilValue(trackListState);
-  const [tempTrack, setTempTrack] = useState<any>([]);
+  const [tempTrack, setTempTrack] = useState<any | null>(null);
   const router = useRouter();
   const { id } = router.query;
   const history = useHistory();
@@ -50,7 +50,7 @@ const TrackInfo = () => {
   useEffect(() => {
     // const trackInfo:Temp = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
     const { track } = currentTracks.filter((t) => t.track.id === id)[0];
-    console.log(track);
+    // console.log(track);
     setTempTrack(track);
   }, [currentTracks, id]);
   // console.log(track.album && track.album.images);
@@ -63,7 +63,7 @@ const TrackInfo = () => {
     router.push('/');
     // console.log(router);
   };
-  // console.log(tempTrack);
+  console.log(tempTrack);
   return (
     <div className="track-container main-body">
       {/* <button type="button" onClick={() => handleBack()}>Go Back</button> */}
@@ -80,7 +80,7 @@ const TrackInfo = () => {
       </div>
       {tempTrack && (
       <div className="track-info">
-        <h1>{tempTrack.name.toUpperCase()}</h1>
+        <h1>{tempTrack.name}</h1>
         <div className="image-container">
           <Image src={tempTrack.album.images[0].url} alt="Artist" height={400} width={400} quality={100} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=" className="track-image" />
 
