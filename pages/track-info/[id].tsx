@@ -36,12 +36,12 @@ interface Temp {
   album: {
     images: [{ url:string }]
   }
-  external_urls: { spotify: string }
+  external_urls?: { spotify: string }
 }
 
 const TrackInfo = () => {
   const currentTracks = useRecoilValue(trackListState);
-  const [tempTrack, setTempTrack] = useState<any | null>(null);
+  const [tempTrack, setTempTrack] = useState<Temp | null>(null);
   const router = useRouter();
   const { id } = router.query;
   const history = useHistory();
@@ -63,7 +63,7 @@ const TrackInfo = () => {
     router.push('/');
     // console.log(router);
   };
-  console.log(tempTrack);
+  // console.log(tempTrack);
   return (
     <div className="track-container main-body">
       {/* <button type="button" onClick={() => handleBack()}>Go Back</button> */}
@@ -89,7 +89,7 @@ const TrackInfo = () => {
         <div className="iframe">
           <iframe src={`https://open.spotify.com/embed/track/${tempTrack.id}`} title="track" width="400" height="80" frameBorder="0" allow="encrypted-media" />
         </div>
-        <form method="get" action={tempTrack.external_urls.spotify} target="_blank">
+        <form method="get" action={tempTrack.external_urls && tempTrack.external_urls.spotify} target="_blank">
           <input type="submit" className="hover-center-1" value={`Listen to ${tempTrack.name} in Spotify`} />
         </form>
       </div>
