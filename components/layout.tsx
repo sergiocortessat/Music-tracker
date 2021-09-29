@@ -96,11 +96,7 @@ const Layout = () => {
     const trackInfo = currentTracks.filter((t) => t.track.id === val);
 
     setTrackDetail(trackInfo[0].track);
-    // console.log(trackInfo);
-    // history.push('/detail');
   };
-
-  // console.log(tracks);
 
   return (
     <>

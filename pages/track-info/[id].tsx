@@ -5,30 +5,6 @@ import { useRecoilValue } from 'recoil';
 import Image from 'next/image';
 import { useHistory } from 'react-router-dom';
 import trackListState from '../../components/atom';
-import blurImage from '../../public/image.png';
-
-interface Tracks {
-  track: {
-    id: string;
-    name: string;
-    album: {
-      images: [{ url:string }]
-    }
-    external_urls: { spotify: string }
-
-  }
-}
-
-interface TrackInformation {
-  track: {
-    id: string;
-    name: string;
-    album: {
-      images: [{ url:string }]
-    }
-    external_urls: { spotify: string }
-  }
-}
 
 interface Temp {
   id: string;
@@ -48,12 +24,9 @@ const TrackInfo = () => {
   // console.log(currentTracks);
 
   useEffect(() => {
-    // const trackInfo:Temp = currentTracks[0].filter((t:Tracks) => t.track.id === id)[0];
     const { track } = currentTracks.filter((t) => t.track.id === id)[0];
-    // console.log(track);
     setTempTrack(track);
   }, [currentTracks, id]);
-  // console.log(track.album && track.album.images);
 
   // const handleClick = (e: any) => {
   //   window.open = e.target.id;
@@ -61,9 +34,7 @@ const TrackInfo = () => {
 
   const handleBack = () => {
     router.push('/');
-    // console.log(router);
   };
-  // console.log(tempTrack);
   return (
     <div className="track-container main-body">
       {/* <button type="button" onClick={() => handleBack()}>Go Back</button> */}

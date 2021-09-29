@@ -18,21 +18,17 @@ interface Props {
 const ListBox = ({
   tracks, selectedValue, clicked,
 }: Props) => {
-  // const setText = useSetRecoilState(todoListState);
   const setCurrentTracks = useSetRecoilState(trackListState);
-  // const [todoList, setTodoList] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
     setCurrentTracks(tracks);
-    // console.log(tracks);
   }, [tracks, setCurrentTracks]);
 
   const handleClicked = (e: any) => {
     clicked(e.target.id);
     router.push(`/track-info/${e.target.id}`);
   };
-  // console.log(todoList);
   const x = 0;
   return (
     <div className="list-box">
